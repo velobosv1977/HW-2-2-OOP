@@ -1,4 +1,6 @@
-package org.skypro.skyshop;
+package org.skypro.skyshop.basket;
+
+import org.skypro.skyshop.product.Product;
 
 import java.util.Arrays;
 
@@ -15,15 +17,10 @@ public class ProductBasket {
     public void add(Product product) {
         int freeIndex = getFreeIndex();
         if (freeIndex == NOT_FOUND) {
-            System.out.println("Невозможно добавить продукт!  \"" + product.getTitle() + "\"");
+            System.out.println("Невозможно добавить продукт!  \"" + product.getNameProduct() + "\"");
             return;
         }
         products[freeIndex] = product;
-    }
-
-    public int getTotalCost() {
-        int sum = 0;
-        for (Product product : products) ;
     }
 
     public int getTotalCost() {
@@ -49,13 +46,13 @@ public class ProductBasket {
         System.out.println("Итого: " + getTotalCost());
     }
 
-    public boolean findByTitle(String title) {
+    public boolean findByNameProduct(String title) {
         for (Product product : products) {
-            if (product != null && product.getTitle().equals(title)) {
-                return true
+            if (product != null && product.getNameProduct().equals(title)) {
+                return true;
             }
         }
-        return false
+        return false;
     }
 
     public void clear() {
