@@ -1,27 +1,27 @@
 package org.skypro.skyshop.product;
 
-public class Product {
-    private String nameProduct;
-    private Integer priceProduct;
+// Базовый класс продуктов
+public abstract class Product {
+    private final String nameProduct;
 
-    public Product(String nameProduct, Integer priceProduct) {
+    public Product(String nameProduct) {
         this.nameProduct = nameProduct;
-        this.priceProduct = priceProduct;
     }
 
     public String getNameProduct() {
         return nameProduct;
     }
 
-    public Integer getPriceProduct() {
-        return priceProduct;
+    public abstract int getPriceProduct();
+
+    // проверка на специальный продукт
+    public boolean isSpecial() {
+        return false;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
-    }
-
-    public void setPriceProduct(Integer priceProduct) {
-        this.priceProduct = priceProduct;
+    @Override
+    public String toString() {
+        return nameProduct;
     }
 }
+

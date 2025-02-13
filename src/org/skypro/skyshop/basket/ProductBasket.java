@@ -44,6 +44,7 @@ public class ProductBasket {
             }
         }
         System.out.println("Итого: " + getTotalCost());
+        System.out.println("Добавлено специальных товаров: " + getSpecialProductCount());
     }
 
     public boolean findByNameProduct(String title) {
@@ -57,6 +58,18 @@ public class ProductBasket {
 
     public void clear() {
         Arrays.fill(products, null);
+    }
+
+    public int getSpecialProductCount() {
+        int count = 0;
+        for (Product product : products) {
+            if (product != null) {
+                if (product.isSpecial()) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     private int getFreeIndex() {
