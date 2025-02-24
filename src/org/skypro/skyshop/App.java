@@ -73,7 +73,7 @@ public class App {
         Article aboutCandy = new Article("Конфеты это кондитерские изделия, ", "характеризуются высоким содержанием сахара и мягкой консистенцией", "600 ккал/100 г");
 
         //добавим созданные объекты для класса Article в класс для поиска SearchEngine
-        searchEngine.add(aboutPotato);
+        searchEngine.add(aboutMilk);
 
         //демонстрация поиска при помощи созданного интерфейса searchEngine
 
@@ -83,10 +83,10 @@ public class App {
         String demand2 = "Кефир";
         System.out.println("Результат поиска: " + demand2 + "\": " + Arrays.toString(searchEngine.search(demand2)));
 
-        String demand3 = "Рис";
+        String demand3 = "Конфеты";
         System.out.println("Результат поиска: " + demand3 + "\": " + Arrays.toString(searchEngine.search(demand3)));
 
-        String demand4 = "Пшено";
+        String demand4 = "Чай";
         System.out.println("Результат поиска: " + demand4 + "\": " + Arrays.toString(searchEngine.search(demand4)));
     }
 }
