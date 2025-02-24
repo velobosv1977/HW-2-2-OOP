@@ -5,16 +5,20 @@ package org.skypro.skyshop;
 // формирование корзины
 
 
+import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.search.SearchEngine;
+
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
         //наполнение корзины
-        Product milk = new SimpleProduct( "Молоко", 106);
+        Product milk = new SimpleProduct("Молоко", 106);
         Product meat = new SimpleProduct("Говядина", 850);
         Product potato = new DiscountedProduct("Картофель", 94, 15);
         Product rice = new SimpleProduct("Рис", 73);
@@ -51,10 +55,38 @@ public class App {
         basket.print();
 
         //вывод в консоль стоимости товаров в очищенной корзины
-        System.out.println("В корзине товаров на сумму:  " +basket.getTotalCost());
+        System.out.println("В корзине товаров на сумму:  " + basket.getTotalCost());
 
         //вывод в консоль результатов поиска товаров в очищенной корзине
-        System.out.println("Поиск товара " + potato.getNameProduct() + "   в корзине  " +basket.findByNameProduct(potato.getNameProduct()));
+        System.out.println("Поиск товара " + potato.getNameProduct() + "   в корзине  " + basket.findByNameProduct(potato.getNameProduct()));
 
+        //создание объекта SearchEngine для поиска товаров
+        SearchEngine searchEngine = new SearchEngine();
+        searchEngine.add(potato);
+
+        //создание объектов для класса Article
+        Article aboutMilk = new Article("Молоко это пищевой продукт, ", "питательную жидкость, вырабатываемая молочными железами самок млекопитающих во время лактации.", "60 ккал/100 г");
+        Article aboutMeat = new Article("Мясо это пищевой продукт,", "полученный в результате забоя сельскохозяйственных животных специальных мясных пород на скотобойнях.", "300 ккал/100 г");
+        Article aboutPotato = new Article("Картофель это пищевой продукт,", "представляющий собой клубни травянистых растений из семейства Пасленовых. С потребительской точки зрения картофель является овощем.", "73 ккал/100 г");
+        Article aboutRice = new Article("Рис это пищевой продукт,", "крупа, полученная путём выращивания растения из рода Рис однолетних и многолетних травянистых растений семейства Злаки.", "303 ккал/100 г");
+        Article aboutTea = new Article("Чай это напиток,", "получаемый варкой, завариванием и/или настаиванием листа чайного куста, который предварительно подготавливается специальным образом.", "140 ккал/100 г");
+        Article aboutCandy = new Article("Конфеты это кондитерские изделия, ", "характеризуются высоким содержанием сахара и мягкой консистенцией", "600 ккал/100 г");
+
+        //добавим созданные объекты для класса Article в класс для поиска SearchEngine
+        searchEngine.add(aboutPotato);
+
+        //демонстрация поиска при помощи созданного интерфейса searchEngine
+
+        String demand1 = "Молоко";
+        System.out.println("Результат поиска: " + demand1 + "\": " + Arrays.toString(searchEngine.search(demand1)));
+
+        String demand2 = "Кефир";
+        System.out.println("Результат поиска: " + demand2 + "\": " + Arrays.toString(searchEngine.search(demand2)));
+
+        String demand3 = "Рис";
+        System.out.println("Результат поиска: " + demand3 + "\": " + Arrays.toString(searchEngine.search(demand3)));
+
+        String demand4 = "Пшено";
+        System.out.println("Результат поиска: " + demand4 + "\": " + Arrays.toString(searchEngine.search(demand4)));
     }
 }

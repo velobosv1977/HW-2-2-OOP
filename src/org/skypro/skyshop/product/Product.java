@@ -1,14 +1,18 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.search.Searchable;
+
 // Базовый класс продуктов
-public abstract class Product {
+public abstract class Product implements Searchable {
     private final String nameProduct;
 
     public Product(String nameProduct) {
+
         this.nameProduct = nameProduct;
     }
 
     public String getNameProduct() {
+
         return nameProduct;
     }
 
@@ -16,11 +20,13 @@ public abstract class Product {
 
     // проверка на специальный продукт
     public boolean isSpecial() {
+
         return false;
     }
 
     @Override
     public String toString() {
+
         return nameProduct;
     }
 }
