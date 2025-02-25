@@ -40,11 +40,11 @@ public final class SearchEngine {
         searchables[freeIndex] = searchable;
     }
 
-    //   public void addAll(Searchable... searchables) {
-    //     for (Searchable searchable : searchables) {
-    //       add(searchable);
-    //      }
-    // }
+    public void addAll(Searchable... searchables) {
+        for (Searchable searchable : searchables) {
+            add(searchable);
+        }
+    }
 
     private int getFreeIndex() {
         for (int i = 0; i < searchables.length; i++) {

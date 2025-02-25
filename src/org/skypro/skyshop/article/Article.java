@@ -5,12 +5,11 @@ import org.skypro.skyshop.search.Searchable;
 public class Article implements Searchable {
     private final String title;
     private final String content;
-    private final String calorie;
 
-    public Article (String title, String content, String calorie) {
+
+    public Article (String title, String content) {
         this.title = title;
         this.content = content;
-        this.calorie = calorie;
     }
 
     public String getTitle() {
@@ -21,13 +20,9 @@ public class Article implements Searchable {
         return content;
     }
 
-    public String getCalorie() {
-        return calorie;
-    }
-
     @Override
     public String toString() {
-        return title + "\n" + content + "\n" +calorie;
+        return title + "\n" + content  ;
     }
 
     @Override

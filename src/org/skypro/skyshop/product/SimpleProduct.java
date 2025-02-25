@@ -13,5 +13,5 @@ public class SimpleProduct extends Product {
         return priceProduct;
     }
     @Override
-    public String toString() {return getNameProduct() + " : " +getPriceProduct(); }
+    public String toString() {return getNameProduct() + "  Базовая цена: " +getPriceProduct(); }
 }
