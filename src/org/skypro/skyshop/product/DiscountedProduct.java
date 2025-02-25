@@ -19,7 +19,7 @@ public class DiscountedProduct extends Product {
 
     @Override
     public String toString() {
-        return getNameProduct() + " : " + getPriceProduct() + " (скидка " + discount + " %)";
+        return getNameProduct() + "Базовая цена: " + getPriceProduct() + " (скидка " + discount + " %)";
     }
 
     @Override
