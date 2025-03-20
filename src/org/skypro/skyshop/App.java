@@ -73,7 +73,7 @@ public class App {
         Article aboutCandy = new Article("Конфеты это кондитерские изделия, ", "характеризуются высоким содержанием сахара и мягкой консистенцией.");
 
         //добавим созданные объекты для класса Article в класс для поиска SearchEngine
-        searchEngine.addAll(aboutMilk);
+        searchEngine.addAll(aboutTea);
 
         //демонстрация поиска при помощи созданного интерфейса searchEngine
 
@@ -88,5 +88,24 @@ public class App {
 
         String demand4 = "Чай";
         System.out.println("Результат поиска: " + demand4 + "\": " + Arrays.toString(searchEngine.search(demand4)));
+
+        // демонстрация работы исключений в классе Product и в классе SimpleProduct
+        System.out.println("/");
+        System.out.println("Демонстрация работы исключений в абстрактном классе Product и SimpleProduct:");
+        try {
+            Product fish = new SimpleProduct("Селедка", -231);
+            System.out.println(fish);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+        // демонстрация работы исключений в классе DiscountedProduct
+        System.out.println("/");
+        System.out.println("Демонстрация работы исключений в классе DiscountedProduct:");
+        try {
+            DiscountedProduct tomato = new DiscountedProduct("Помидор  ", 324, 11);
+            System.out.println(tomato);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка при создании продукта: " + e.getMessage());
+        }
     }
 }
