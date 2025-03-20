@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class main {
     public static void main(String[] args) {
         // Создаем экземпляр в классе SearchEngine с размером 5
-        SearchEngine searchEngine = new SearchEngine(5);
+        SearchEngine searchEngine = new SearchEngine(7);
         // Создаем несколько объектов Searchable
         //создание объектов для класса Article
         Article aboutMilk = new Article("Молоко это пищевой продукт, ", "питательную жидкость, вырабатываемая молочными железами самок млекопитающих во время лактации.");
@@ -25,7 +25,7 @@ public class main {
 
         // Проверяем, когда нужный объект существует
         try {
-            Searchable bestMatch = searchEngine.findBestMatch("рис");
+            Searchable bestMatch = searchEngine.findBestMatch("milk");
             System.out.println("Лучший результат найден: " + bestMatch.getSearchTerm());
         } catch (BestResultNotFound e) {
             System.out.println("Ошибка: " + e.getMessage());
